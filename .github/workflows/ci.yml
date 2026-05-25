@@ -1,0 +1,16 @@
+name: CI Pipeline eSport
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Récupérer le code source
+      uses: actions/checkout@v3
+
+    - name: 🐳 Tester la construction de l'image Docker
+      run: docker build -t esport-api:test .
